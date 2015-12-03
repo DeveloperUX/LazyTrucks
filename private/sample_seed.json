@@ -1,0 +1,78 @@
+{
+  "trucks" : [
+    {
+      "name": "Kimchi",
+      "location": {
+        "lat": 62.3,
+        "long": 65.31
+      },
+      "menu_items": [
+        {
+          "category" : "salad",
+          "name" : "Blue Boston",
+          "price": "12.40",
+          "type": "dish"
+        }
+      ]
+    },
+    {
+      "name": "Tasty Kabob",
+      "location": {
+        "lat": 62.7,
+        "long": 64
+      },
+      "image": "tasty_kabob.jpg",
+      "menu_items": [
+        {
+          "category" : "kabob",
+          "name" : "Chicken Kabob",
+          "price": "9",
+          "type": "dish"
+        }
+      ]
+    },
+    {
+      "name": "El Fuego",
+      "location": {
+        "lat": 62.5,
+        "long": 65.42
+      },
+      "image": "el_fuego.jpg",
+      "menu_items": [
+        {
+          "category" : "peruvian",
+          "name" : "Loco Soltado",
+          "price": "9.50",
+          "type": "dish"
+        },
+        {
+          "category" : "peruvian",
+          "name" : "Yuca Fries",
+          "price": "2.50",
+          "type": "side"
+        },
+        {
+          "category" : "exotic",
+          "name" : "Pina Collada",
+          "price": "3",
+          "type": "drink"
+        }
+      ]
+    },
+    {
+      "name": "Kabob King",
+      "location": {
+        "lat": 62.21,
+        "long": 64.1
+      },
+      "menu_items": [
+        {
+          "category" : "Indian",
+          "name" : "Lamb Kabob",
+          "price": "11.50",
+          "type": "dish"
+        }
+      ]
+    }
+  ]
+}
