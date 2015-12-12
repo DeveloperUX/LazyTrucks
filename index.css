@@ -11,6 +11,21 @@ nav .brand-logo {
   margin-top: 120px;
 }
 
+.masonry {
+  -moz-column-count: 3;
+  -moz-column-gap: 40px;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 40px;
+  column-count: 3;
+  column-gap: 40px;
+}
+
+.truck {
+  /* Fix for 2nd and 3rd column not aligning an being too high */
+  display: inline-block;
+  margin-top: 20px;
+}
+
 .card.medium .card-image {
   max-height: 100%;
 }

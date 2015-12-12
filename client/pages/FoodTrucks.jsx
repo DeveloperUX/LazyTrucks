@@ -19,7 +19,7 @@ FoodTrucks = React.createClass({
 
   renderTrucksList() {
     return this.data.trucks.map(function(truck) {
-      return <div className="col s12 m6 l4">
+      return <div className="truck">
         <Truck
           truckId={truck._id}
           truck={truck}>
@@ -30,7 +30,7 @@ FoodTrucks = React.createClass({
 
   render() {
     return (
-      <div className="row">
+      <div className="row masonry">
         {this.renderTrucksList()}
       </div>
     );
