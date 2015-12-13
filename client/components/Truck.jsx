@@ -11,7 +11,7 @@ Truck = React.createClass({
     return (
       <div className="card">
         <div className="card-image">
-          <img src={this.props.truck.image ? this.props.truck.image : "generic_truck.jpg"} />
+          <img src={this.props.truck.image ? this.props.truck.image : "generic_truck.png"} />
           <span className="card-title">{this.props.truck.name}</span>
         </div>
       </div>

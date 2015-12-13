@@ -14,17 +14,23 @@ Meteor.startup(function() {
   var trucks = [];
 
   // Grab the complete list of food trucks from those guys
+  // This section will grab the trucks who have shared their location
   var foodTrucksList = HTTP.call("GET", "http://foodtruckfiesta.com/apps/map_json.php?num_days=365&minimal=0&alert_nc=y&alert_hc=0&alert_pm=0&rand=458950514");
-  console.log(foodTrucksList.data.markers);
+
   _.forEach(foodTrucksList.data.markers, function(marker) {
-    // Let's grab only the fields we need
-    let truck = _.pick(marker, 'coord_lat', 'coord_long', 'truck', 'print_name');
-    // Rename some fields, handle will be the document ID
-    truck.handle = truck.truck.toUpperCase();
-    truck.name = truck.print_name;
-    truck = _.omit(truck, ['truck', 'print_name']);
-    // Add the truck to our full list of trucks
-    trucks.push(truck);
+    // Before we parse this Truck let's make sure this is not a duplicate
+    var existing = _.findWhere(trucks, {handle: marker.truck.toUpperCase()});
+    if( !existing ) {
+      // Let's grab only the fields we need
+      let truck = _.pick(marker, 'coord_lat', 'coord_long', 'truck', 'print_name');
+      // Rename some fields, handle will be the document ID
+      truck.handle = truck.truck.toUpperCase();
+      truck.name = truck.print_name;
+      truck = _.omit(truck, ['truck', 'print_name']);
+      console.log("Truck with Coords: ", truck);
+      // Add the truck to our full list of trucks
+      trucks.push(truck);
+    }
   });
 
   // Add the list of trucks from the seed file
