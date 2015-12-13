@@ -4,14 +4,23 @@ FoodTrucks = React.createClass({
 
   mixins: [ReactMeteorData, History],
 
+  componentDidMount() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var initialPosition = JSON.stringify(position);
+        this.setState({initialPosition});
+      });
+    }
+  },
+
   // On load, load the trucks we have
   getMeteorData() {
     var data = {};
-    data.trucks = Trucks.find({}).fetch();
+    data.trucks = Trucks.find({loc : {$exists: true}}).fetch();
     var handle = Meteor.subscribe('trucks');
 
     if(handle.ready()) {
-      data.trucks = Trucks.find({}).fetch();
+      data.trucks = Trucks.find({loc : {$exists: true}}).fetch();
     }
 
     return data;
