@@ -17,7 +17,7 @@ FoodTrucks = React.createClass({
   getMeteorData() {
     var data = {};
     data.trucks = Trucks.find({loc : {$exists: true}}).fetch();
-    var handle = Meteor.subscribe('trucks');
+    var handle = Meteor.subscribe('nearbyTrucks', []);
 
     if(handle.ready()) {
       data.trucks = Trucks.find({loc : {$exists: true}}).fetch();

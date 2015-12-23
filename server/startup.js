@@ -26,7 +26,7 @@ Meteor.startup(function() {
       // Rename some fields, handle will be the document ID
       truck.handle = truck.truck.toUpperCase();
       truck.name = truck.print_name;
-      truck.loc = [truck.coord_lat, truck.coord_long];
+      truck.loc = [truck.coord_long, truck.coord_lat];
       truck = _.omit(truck, ['truck', 'print_name']);
       console.log("Truck with Coords: ", truck);
       // Add the truck to our full list of trucks
