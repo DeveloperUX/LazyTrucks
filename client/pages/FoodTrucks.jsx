@@ -4,11 +4,13 @@ FoodTrucks = React.createClass({
 
   mixins: [ReactMeteorData, History],
 
+  // Runs only once
   componentDidMount() {
     if (navigator.geolocation) {
+      let context = this;
       navigator.geolocation.getCurrentPosition(function(position) {
         var initialPosition = JSON.stringify(position);
-        this.setState({initialPosition});
+        context.setState({initialPosition});
       });
     }
   },
@@ -26,21 +28,24 @@ FoodTrucks = React.createClass({
     return data;
   },
 
-  renderTrucksList() {
+  // Use an underscore for custom methods
+  _renderTrucksList() {
     return this.data.trucks.map(function(truck) {
-      return <div className="truck">
-        <Truck
-          truckId={truck._id}
-          truck={truck}>
-        </Truck>
-      </div>;
+      return (
+        <div className="truck col s12 m6 l4">
+          <Truck
+            truckId={truck._id}
+            truck={truck}>
+          </Truck>
+        </div>
+      );
     });
   },
 
   render() {
     return (
       <div className="row masonry">
-        {this.renderTrucksList()}
+        {this._renderTrucksList()}
       </div>
     );
   }

@@ -37,7 +37,7 @@ nav .brand-logo {
   /* Fix for 2nd and 3rd column not aligning an being too high */
   display: inline-block;
   margin-top: 20px;
-  min-width: 360px;
+  /*min-width: 360px;*/
 }
 
 .card.medium .card-image {
