@@ -1,7 +1,7 @@
 Menu = React.createClass({
   render() {
     return (
-      <h1>Menu Coming Soon...</h1>
+      <h1 className="center-align">Menu Coming Soon...</h1>
     );
   }
 })

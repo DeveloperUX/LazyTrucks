@@ -14,7 +14,7 @@ Truck = React.createClass({
 
   render() {
     return (
-      <div className="card">
+      <div className="card hoverable">
         <div className="card-image">
           <img src={this.props.truck.image ? this.props.truck.image : "generic_truck.png"} />
           <a href={'/truck/' + this.props.truckId} className="card-title truck-name">{this.props.truck.name}</a>
