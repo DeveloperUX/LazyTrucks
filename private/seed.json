@@ -286,6 +286,10 @@
     "image":"http://foodtruckfiesta.com/wp-content/uploads/2011/04/tasty-kabob-truck.jpg",
     "handle":"tastykabob",
     "name":"Tasty Kabob",
+    "loc": {
+      "lat": 74.7,
+      "long": 40
+    },
     "menu_items": [
       {
         "category" : "platter",
