@@ -19,6 +19,7 @@ Meteor.startup(function() {
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="trucks" component={FoodTrucks} />
+        <Route path="truck/:id" component={Menu} />
       </Route>
     </Router>
   ), document.getElementById("app"));
