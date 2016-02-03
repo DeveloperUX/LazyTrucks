@@ -44,7 +44,7 @@ FoodTrucks = React.createClass({
 
   render() {
     return (
-      <div className="row masonry">
+      <div className="row">
         {this._renderTrucksList()}
       </div>
     );

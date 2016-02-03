@@ -53,3 +53,14 @@ nav .brand-logo {
   background: -ms-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.75) 100%);
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.75) 100%);
 }
+
+.card .card-image {
+    height: 280px;
+}
+
+.card .card-image img {
+  position: relative;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
