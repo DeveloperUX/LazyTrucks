@@ -9,23 +9,24 @@ FoodTrucks = React.createClass({
     if (navigator.geolocation) {
       let context = this;
       navigator.geolocation.getCurrentPosition(function(position) {
-        var initialPosition = JSON.stringify(position);
-        context.setState({initialPosition});
+        context.setState({position: position.coords});
       });
     }
   },
 
   // On load, load the trucks we have
   getMeteorData() {
-    var data = {};
-    data.trucks = Trucks.find({loc : {$exists: true}}).fetch();
-    var handle = Meteor.subscribe('nearbyTrucks', []);
+    // var data = {};
+    // data.trucks = Trucks.find({loc : {$exists: true}}).fetch();
 
-    if(handle.ready()) {
-      data.trucks = Trucks.find({loc : {$exists: true}}).fetch();
+    let loc = this.state && this.state.position && _.pick(this.state.position, 'latitude', 'longitude');;
+
+    var handle = Meteor.subscribe('nearbyTrucks', loc);
+
+    return {
+      isReady: !!handle.ready(),
+      trucks: Trucks.find().fetch()
     }
-
-    return data;
   },
 
   // Use an underscore for custom methods

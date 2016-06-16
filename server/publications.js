@@ -1,3 +1,21 @@
+var milesToRadian = function(miles){
+  var earthRadiusInMiles = 3959;
+  return miles / earthRadiusInMiles;
+};
+
 Meteor.publish('nearbyTrucks', function(userLoc) {
-  return Trucks.find({ loc: { '$geoWithin': { '$centerSphere': [ [ -74, 40.74 ] , 100 / 3963.2 ] } } }).fetch();
+
+  let lat = userLoc ? userLoc.latitude : 34;
+  let long = userLoc ? userLoc.longitude : -73;
+
+  console.log(userLoc);
+  console.log("LAT - LONG: " + long + ' ' + lat);
+
+  return Trucks.find({
+      loc: {
+        '$geoWithin': {
+          '$centerSphere': [ [ long, lat ] , milesToRadian(6) ]
+        }
+      }
+    });
 });
